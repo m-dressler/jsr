@@ -1,7 +1,14 @@
 {
   "name": "@md/jsr",
   "version": "0.0.0",
-  "exports": "./mod.ts",
+  "exports": {
+    ".": "./mod.ts",
+    "./v": "./versioning.ts",
+    "./version": "./versioning.ts"
+  },
   "license": "ISC",
-  "exclude": [".github/"]
+  "exclude": [".github/"],
+  "imports": {
+    "@std/semver": "jsr:@std/semver@^1.0.3"
+  }
 }
