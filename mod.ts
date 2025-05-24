@@ -39,7 +39,7 @@ const directoryStructure = {
 Deno.test("Example", () => {
   assertEquals(1 + 1, 2);
 });`,
-  "README.md": `# ${projectName}\n\n${projectDescription}\n\n## Example\n\n\`\`\`\n// TODO\n\`\`\``,
+  "README.md": `# ${projectName}\n\n${projectDescription}\n\n## Example\n\n\`\`\`ts\n// TODO\n\`\`\``,
   ".gitignore": [".env", ".DS_Store"].join("\n"),
   ".vscode/settings.json": JSON.stringify({
     "deno.enable": true,
