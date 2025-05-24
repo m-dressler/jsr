@@ -15,7 +15,8 @@ while (!projectName) {
 const [scope, packageName] = projectName.split("/");
 
 // Get the project description from the user via the terminal
-const projectDescription = prompt("Enter the project description:") || "";
+const projectDescription =
+  prompt("Enter the project description:")?.trim().replace(/\.$/, "") || "";
 
 /** The folder to create the project in */
 const parentFolder = projectName.replace("/", ":");
