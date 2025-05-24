@@ -33,13 +33,36 @@ const directoryStructure = {
     null,
     2
   ),
-  "mod.ts": `console.log("Hello from ${projectName}!");`,
+  "mod.ts": `/**
+ * An example function 
+ * 
+ * @example
+ * \`\`\`ts
+ * // TODO
+ * \`\`\`
+ */
+export default function example(): boolean {
+  console.log("Hello from ${projectName}!");
+  return true;
+}
+`,
   "mod_test.ts": `import { assertEquals } from "jsr:@std/assert/equals";
+import example from "./mod.ts";
 
 Deno.test("Example", () => {
-  assertEquals(1 + 1, 2);
-});`,
-  "README.md": `# ${projectName}\n\n${projectDescription}\n\n## Example\n\n\`\`\`ts\n// TODO\n\`\`\``,
+  assertEquals(example(), true);
+});
+`,
+  "README.md": `# ${projectName}
+
+${projectDescription}.
+
+## Example
+
+\`\`\`ts
+// TODO
+\`\`\`
+`,
   ".gitignore": [".env", ".DS_Store"].join("\n"),
   ".vscode/settings.json": JSON.stringify({
     "deno.enable": true,
