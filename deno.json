@@ -9,6 +9,7 @@
   "license": "ISC",
   "exclude": [".github/"],
   "imports": {
+    "@std/jsonc": "jsr:@std/jsonc@^1.0.2",
     "@std/semver": "jsr:@std/semver@^1.0.3"
   }
 }
