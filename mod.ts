@@ -23,7 +23,7 @@ const parentFolder = projectName.replace("/", ":");
 
 /** The entire file structure to create */
 const directoryStructure = {
-  "deno.json": JSON.stringify(
+  "deno.jsonc": JSON.stringify(
     {
       name: projectName,
       version: "0.0.0",
