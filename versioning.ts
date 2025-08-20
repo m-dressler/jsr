@@ -1,3 +1,14 @@
+/**
+ * Updates the version in `deno.json(c)` based on the provided primary version.
+ *
+ * @example
+ * ```sh
+ * deno run -RW --allow-run=git jsr:@md/jsr/v patch
+ * ```
+ *
+ * @module
+ */
+
 import { parse } from "@std/jsonc/";
 import { format } from "@std/semver/format";
 import { tryParse } from "@std/semver/try-parse";
@@ -10,7 +21,7 @@ const primary = Deno.args[0] as (typeof primaries)[number];
 // If the argument is not a valid primary, exit with error
 if (!primaries.includes(primary)) {
   console.error(
-    `Invalid argument "${primary}". Please use one of ${primaries.join(", ")}`,
+    `Invalid argument "${primary}". Please use one of ${primaries.join(", ")}`
   );
   Deno.exit(1);
 }
@@ -19,16 +30,16 @@ const denoTextFiles = await Promise.all(
   ["./deno.jsonc", "./deno.json"].map(async (path) => ({
     path,
     text: await Deno.readTextFile(path).catch(() => {}),
-  })),
+  }))
 );
 
 /** The deno.json file as text read from the current directory */
 const denoJsonFile = denoTextFiles.find(
-  (v): v is { path: string; text: string } => !!v.text,
+  (v): v is { path: string; text: string } => !!v.text
 );
 if (!denoJsonFile) {
   console.error(
-    'Couldn\'t read "deno.jsonc" or "deno.json". Are you in the right directory?',
+    'Couldn\'t read "deno.jsonc" or "deno.json". Are you in the right directory?'
   );
   Deno.exit(1);
 }
@@ -61,19 +72,19 @@ const updatedVersion = format(version);
 if (denoJsonFile.text.includes(`"${versionString}"`)) {
   denoJsonFile.text = denoJsonFile.text.replace(
     new RegExp(`("version":\\s*)"${versionString}"`),
-    `$1"${updatedVersion}"`,
+    `$1"${updatedVersion}"`
   );
 } //If it isn't included it, the original semver was missing/invalid so we remove any version key and add versioning back in
 else {
   // Remove any invalid version key
   denoJsonFile.text = denoJsonFile.text.replace(
     /\s*"version":\s*"\w*"\s*(,\s*\n)?/,
-    "",
+    ""
   );
   // Add the updated version key to the beginning
   denoJsonFile.text = denoJsonFile.text.replace(
     "{",
-    `{\n  "version": "${updatedVersion}",`,
+    `{\n  "version": "${updatedVersion}",`
   );
 }
 await Deno.writeTextFile(denoJsonFile.path, denoJsonFile.text);
