@@ -40,7 +40,7 @@ const directoryStructure = {
       version: "0.0.0",
       license: "ISC",
       exports: "./mod.ts",
-      publish: { exclude: [".github/", ".gitignore"] },
+      publish: { exclude: [".github/", ".gitignore", "./**/*.test.ts"] },
     },
     null,
     2,
