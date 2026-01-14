@@ -1,11 +1,11 @@
 /**
  * Creates a new JSR package project structure.
- * 
+ *
  * @example
  * ```sh
  * deno run -W jsr:@md/jsr
  * ```
- * 
+ *
  * @module
  */
 
@@ -43,7 +43,7 @@ const directoryStructure = {
       publish: { exclude: [".github/", ".gitignore"] },
     },
     null,
-    2
+    2,
   ),
   "mod.ts": `/**
  * An example function 
@@ -113,7 +113,7 @@ const promises = Object.entries(directoryStructure).map(
       await Deno.mkdir(parentDir, { recursive: true });
     }
     return Deno.writeTextFile(path, content);
-  }
+  },
 );
 
 // Await all files to be created
@@ -124,9 +124,11 @@ console.log(`Project created successfully!
 Next steps:
 
 Create GitHub repository:
-  1. https://github.com/new?name=${packageName}&description=${encodeURIComponent(
-  projectDescription
-)}
+  1. https://github.com/new?name=${packageName}&description=${
+  encodeURIComponent(
+    projectDescription,
+  )
+}
 
 Create JSR package: 
   1. https://jsr.io/new?scope=${scope.substring(1)}&package=${packageName}

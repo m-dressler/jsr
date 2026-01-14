@@ -12,4 +12,6 @@ Create a new semver release for the current project:
 - Minor: `deno run -RW --allow-run=git jsr:@md/jsr/v minor`
 - Major: `deno run -RW --allow-run=git jsr:@md/jsr/v major`
 
-To more easily run versioning commands, add `alias denov="deno run -RW --allow-run=git jsr:@md/jsr/v"` to your shell and use it as `denov patch`.
+To more easily run versioning commands, add
+`alias denov="deno run -RW --allow-run=git jsr:@md/jsr/v"` to your shell and use
+it as `denov patch`.
