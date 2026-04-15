@@ -4,7 +4,7 @@ A Deno runnable to quickly set up and manage a JSR repository scaffold.
 
 ## How to use
 
-Create a new project: `deno run -W jsr:@md/jsr`
+Create a new project: `deno create -W @md/jsr`
 
 Create a new semver release for the current project:
 
