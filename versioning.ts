@@ -89,6 +89,10 @@ else {
 }
 await Deno.writeTextFile(denoJsonFile.path, denoJsonFile.text);
 
+console.log(
+  `Updated version from \x1b[33m${version}\x1b[0m to \x1b[33m${updatedVersion}\x1b[0m`,
+);
+
 // Create a new commit if a git folder exists
 await Deno.stat(".git/")
   .then(() => {
@@ -100,6 +104,7 @@ await Deno.stat(".git/")
     new Deno.Command("git", {
       args: ["tag", `v${updatedVersion}`],
     }).outputSync();
+    console.log("Committed changes to git");
   })
   .catch((err) => {
     // If it doesn't exist, we don't mind, otherwise, bubble up error
