@@ -102,7 +102,13 @@ await Deno.stat(".git/")
     }).outputSync();
     // Tag last commit
     new Deno.Command("git", {
-      args: ["tag", `v${updatedVersion}`],
+      args: [
+        "tag",
+        "-a",
+        `v${updatedVersion}`,
+        "-m",
+        `Version ${updatedVersion}`,
+      ],
     }).outputSync();
     console.log("Committed changes to git");
   })

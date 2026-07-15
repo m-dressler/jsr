@@ -152,6 +152,4 @@ Publish changes to github
   3. \`git commit -m "Initial commit"\`
   4. Follow instructions in GitHub from the section
      "…or push an existing repository from the command line"
-
-  5. (optional) \`git config push.followTags true\`
 `);
