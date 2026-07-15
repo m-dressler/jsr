@@ -78,7 +78,7 @@ ${projectDescription}.
   ".gitignore": [".env", ".DS_Store"].join("\n"),
   ".vscode/settings.json": JSON.stringify({
     "deno.enable": true,
-    "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+    "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
   }),
   ".vscode/.gitignore": "*",
   ".github/workflows/publish.yaml": `name: Publish
