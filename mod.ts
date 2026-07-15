@@ -79,6 +79,12 @@ ${projectDescription}.
   ".vscode/settings.json": JSON.stringify({
     "deno.enable": true,
     "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
+    "editor.defaultFormatter": "denoland.vscode-deno",
+    ...Object.fromEntries(
+      ["javascript", "typescript", "css", "yaml", "json", "html"].map(
+        (v) => [`[${v}]`, { "editor.defaultFormatter": "denoland.vscode-deno" }]
+      ),
+    ),
   }),
   ".vscode/.gitignore": "*",
   ".github/workflows/publish.yaml": `name: Publish
