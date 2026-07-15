@@ -58,7 +58,7 @@ export default function example(): boolean {
   return true;
 }
 `,
-  "mod_test.ts": `import { assertEquals } from "jsr:@std/assert/equals";
+  "mod.test.ts": `import { assertEquals } from "jsr:@std/assert/equals";
 import example from "./mod.ts";
 
 Deno.test("Example", () => {
