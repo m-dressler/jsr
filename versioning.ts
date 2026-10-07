@@ -90,7 +90,7 @@ else {
 await Deno.writeTextFile(denoJsonFile.path, denoJsonFile.text);
 
 console.log(
-  `Updated version from \x1b[33m${version}\x1b[0m to \x1b[33m${updatedVersion}\x1b[0m`,
+  `Updated version from \x1b[33m${versionString}\x1b[0m to \x1b[33m${updatedVersion}\x1b[0m`,
 );
 
 // Create a new commit if a git folder exists
